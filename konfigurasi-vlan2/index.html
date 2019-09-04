@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <!-- Required meta tags -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="LibreOffice 6.2.6.2 (Linux)"/>
+	<meta name="author" content="KryPtoN"/>
+	<meta name="created" content="2019-08-14T01:54:00"/>
+	<meta name="changed" content="2019-08-20T22:11:35.472591509"/>
+	<meta name="AppVersion" content="16.0000"/>
+	<meta name="DocSecurity" content="0"/>
+	<meta name="HyperlinksChanged" content="false"/>
+	<meta name="LinksUpToDate" content="false"/>
+	<meta name="ScaleCrop" content="false"/>
+	<meta name="ShareDoc" content="false"/>
+    <link rel="icon" href="/AIJ/asset/img/dhimas.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+   
+    <title>Tugas AIJ XI TKJ 1 | Konfigurasi Vlan#2</title>
+    
+  </head>
+  <body class="bg-secondary">
+    
+      <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            <a class="navbar-brand text-hide" href="/">krypton
+			  <img src="/AIJ/asset/img/dhimas.png" class="rounded-circle d-block" width="36" height="36" viewBox="0 0 612 612" facusable="false">
+            </a>
+            <a class="navbar-brand" href="/">Tugas TLJ</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="" target="_blank">Post</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+	<div class="container mt-2">
+	  <div class="card text-white bg-dark mb-3">
+	   <div class="card-body">
+<div class="text-center">
+<font size="4" style="font-size: 14pt"><b>Configurasi Vlan #2</b></font></p></div>
+<p align="center" style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<img class="img-fluid" src="vlan_html_b7eebf8899ebf5f1.png" name="Image1" align="left" width="459" height="345">
+</img>
+<br/>
+
+</p>
+<p align="left" style="margin-bottom: 0in; font-weight: normal; line-height: 100%">
+<br/>
+
+</p>
+<p><span style="font-variant: normal"><font color="#ffffff"><font face="apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji"><font size="3" style="font-size: 12pt"><span style="letter-spacing: normal"><span style="font-style: normal"><span style="font-weight: normal"><br/>
+</span></span></span></font></font></font></span>Nama
+: Dhimas Bagus Prayoga</p>
+<p>Kelas : XI TKJ - 1</p>
+<p>No. Absen : 09</p>
+<p>Mapel : Administrasi Infrastruktur Jaringan
+(AIJ)</p>
+</div>
+</div>
+</div>
+
+	<div class="container mt-2">
+	  <div class="card text-white bg-dark mb-3">
+	   <div class="card-body">
+<p style="margin-bottom: 0in; line-height: 100%">A. Tujuan
+Pembelajaran</p>
+<p>- Siswa dapat mengetahui cara menggunakan metode jaringan VLAN
+dan AP.</p>
+<p>B. Alat dan Bahan</p>
+<p>- Seperangkat komputer.</p>
+<p>- Software Cisco Paket Tracer.</p>
+<p>C. Langkah - Langkah</p>
+<p>1. Buat bentuk topologi seperti di bawah ini</p>
+<div class="mx-auto img-fluid card mt-2" style="width: 40rem;">
+<p><img class="img-fluid" src="vlan_html_ddb756449ca64962.png" name="Image2" align="left" width="665" height="374">
+</img>
+</div>
+
+
+</p>
+<p>2. Selanjurnya kita settings ROUTER dengan CLI</p>
+<div class="mx-auto img-fluid card mt-2" style="width: 40rem;">
+<p><img class="img-fluid" src="vlan_html_934692f3da884fe6.png" name="Image3" align="left" width="665" height="374">
+</img>
+</div>
+<br>
+
+<h5>Mendefinisikan vlan pada router</h5>
+<pre class="text-white card bg-secondary">
+Router>enable
+Router#vlan database
+Router(vlan)#vlan 10
+Router(vlan)#vlan 20
+Router(vlan)#vlan 30
+Router(vlan)#exit
+</pre>
+<br>
+<h5>Pemberian IP address pada masing-masing vlan di router</h5>
+<pre class="text-white card bg-secondary">
+Router>enable
+Router#conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+
+Router(config)#int fa0/0.10
+Router(config-subif)#encapsulation dot1q 10
+Router(config-subif)#ip add 192.168.1.1 255.255.255.0
+Router(config-subif)#no shutdown
+Router(config-subif)#exit
+
+Router(config)#int fa0/0.20
+Router(config-subif)#encapsulation dot1q 20
+Router(config-subif)#ip add 192.168.2.1 255.255.255.0
+Router(config-subif)#no shutdown
+Router(config-subif)#exit
+
+Router(config)#int fa0/0.30
+Router(config-subif)#encapsulation dot1q 30
+Router(config-subif)#ip add 192.168.3.1 255.255.255.0
+Router(config-subif)#no shutdown
+Router(config-subif)#exit
+</pre>
+<br>
+<h5>Meng-aktifkan DHCP pada router cisco di masing-masing vlan</h5>
+<pre class="text-white card bg-secondary">
+Router#conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+
+Router(config)#interface fa0/0.10
+Router(config-subif)#ip dhcp pool TKJ
+Router(dhcp-config)#network 192.168.1.0 255.255.255.0
+Router(dhcp-config)#default-router 192.168.1.1
+Route(dhcp-config)#dns-server 8.8.8.8
+Router(dhcp-config)#ip dhcp excluded-address 192.168.1.1
+Router(config)#exit
+
+Router(config)#interface fa0/0.20
+Router(config-subif)#ip dhcp pool RPL
+Router(dhcp-config)#network 192.168.2.0 255.255.255.0
+Router(dhcp-config)#default-router 192.168.2.1
+Route(dhcp-config)#dns-server 8.8.8.8
+Router(dhcp-config)#ip dhcp excluded-address 192.168.2.1
+Router(config)#exit
+
+Router(config)#interface fa0/0.30
+Router(config-subif)#ip dhcp pool MM
+Router(dhcp-config)#network 192.168.3.0 255.255.255.0
+Router(dhcp-config)#default-router 192.168.3.1
+Route(dhcp-config)#dns-server 8.8.8.8
+Router(dhcp-config)#ip dhcp excluded-address 192.168.3.1
+Router(config)#exit
+</pre>
+
+
+
+</p>
+<p>3. Dan settings juga Switch nya</p>
+<div class="mx-auto img-fluid card mt-2" style="width: 40rem;">
+<p><img class="img-fluid" src="vlan_html_5f1069fe6ea92627.png" name="Image4" align="left" width="665" height="374">
+</img>
+</div>
+<br>
+<h5>Mendefinisikan Vlan</h5>
+<pre class="text-white card bg-secondary">
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#name TKJ
+Switch(config-vlan)#vlan 20
+Switch(config-vlan)#name RPL
+Switch(config-vlan)#exit
+Switch(config-if)#end
+</pre>
+<br>
+<h5>Mendaftarkan port vlan</h5>
+<pre class="text-white card bg-secondary">
+Switch#conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)#int fa0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+
+Switch(config-if)#int fa0/2
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+
+Switch(config-if)#int fa0/7
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+
+Switch(config-if)#int fa0/3
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#exit
+
+Switch(config-if)#int fa0/4
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#exit
+
+Switch(config-if)#int gig0/1
+Switch(config-if)#switchport mode trunk
+Switch(config-if)#exit
+Switch(config)#end
+</pre>
+
+</p>
+<p>4. Settings IP bisa menggunakan DHCP</p>
+<div class="mx-auto img-fluid card mt-2" style="width: 40rem;">
+<p><img class="img-fluid" src="vlan_html_97e606fff54d7f51.png" name="Image5" align="left" width="665" height="374" border="0"/>
+</div>
+
+</p>
+<p>5. Hasil dari percobaan simulasi PING</p>
+<div class="mx-auto img-fluid card mt-2" style="width: 40rem;">
+<p><img class="img-fluid" src="vlan_html_c0a0275c2380137b.png" name="Image6" align="left" width="665" height="374" border="0"/>
+</div>
+
+</p>
+<p>E. Kesimpulan</p>
+<p>Saat settings di CLI harus teliti dan tidak sembarangan,
+ketelitian sangat di adu saat setting seperti ini</p>
+</div>
+</div>
+</div>
+
+<footer class="bg-secondary text-white">
+  <div class="container">
+      <div class="card text-white bg-dark mb-3">
+          <div class="card-body">
+    <div class="row">
+      <div class="col text-center">
+		<audio src="https://kry9ton.github.io/AIJ/asset/audio/NyanCat.mp3" autoplay controls loop>
+</audio>
+		<p><a>Credit : </a></p>
+		<p><a> Website ini open source bagi yang ini mendownload atau melihat bisa di <a href="https://github.com/kry9ton/TLJ" target="_blank">Github saya</a></a></p>
+        <p>Copyright @2019 
+          <a href="https://t.me/kry9ton" target="_blank">KryPtoN </a><a>(Dhimas XI TKJ 1)</a>
+          </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
